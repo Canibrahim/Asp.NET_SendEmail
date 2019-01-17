@@ -1,0 +1,157 @@
+https://www.codeproject.com/Tips/552508/ASP-NET-Import-Gmail-Contacts
+https://www.etsy.com/teams/7718/questions/discuss/18162407/page/3
+https://discuss.codecademy.com/t/using-jquery-load/49289/3
+https://www.quora.com/When-do-I-use-jQuery-append-vs-appendTo
+https://www.quora.com/How-can-I-make-my-websites-background-change-dynamically-every-5-seconds-using-CSS-and-Javascript-or-jQuery
+
+https://www.quora.com/How-do-I-remove-first-4-letters-using-jQuery
+https://www.quora.com/How-do-I-remove-elements-from-a-list-by-left-clicking-the-element-using-jQuery
+https://www.quora.com/Is-there-a-way-in-jquery-to-animate-an-element-from-a-float-right-position-to-a-float-left-position
+
+https://stackoverflow.com/questions/19157249/autocomplete-without-jquery-ui
+
+jQuery load to fetch products for an ecommerce website.
+I am trying to create an AJAX feature for an ecommerce website built on asp.net web forms. In this AJAX feature I have to load products from the database and show in my page. I am using jQuery Load method for making the AJAX call. I know how to use the .load() method but I am bit confused about how it will fetch the products from database. 
+
+The main problem here is that I have to pass 2 parameters to filter the products. These are "product keyword" and "product category". So please guide me in creating this feature from jQuery Load Method.
+
+Thank you  
+
+You can certainly use jQuery Load method to fetch your products from the database. For this you 
+make the AJAX call from jQuery Load from page 1 to page 2.
+
+Page 1:
+Add a div with id "resultDiv".
+<div id="resultDiv"></div>
+In this div the products will be fecthed from jQuery load method and shown.
+
+Then add the load method code like this:
+
+$("#resultDiv").load("page2.aspx #productData", { "keyword": "" + $("#keywordInput").val() + "", "category": "" + $("#categorySelect").val() + "" }, function (response, status, xhr) {
+    if (status == "error")
+        alert("Error: " + xhr.status + ": " + xhr.statusText);
+}); 
+
+The "productData" will be a div in page2 and jQuery load will fetch its content. In the second parameter of load() function I am passing the keywords and category. 
+
+You can imaging here that "keywordInput" can be a text box while "categorySelect" can be a select control. User adds his keyword on the text box and selects the category ,then he can press a submit button. The click event of the button is where jQuer Load code will be written.
+
+Page2:
+Add a div "productData" in the page:
+<div id="productData" runat="server"></div>
+
+On this .cs page inside the Page_load event you call a function & name it "FetchProduct".
+
+protected void Page_Load(object sender, EventArgs e)
+{
+    if (!IsPostBack)
+    {
+        FetchProduct();
+    }
+}
+
+In the FetchProduct() you get the parameter keyword and parameter category value using Request.Form and then get products from database and show them inside the productData div. The code belwo explains this:
+
+void FetchProduct()
+{
+    string keyword = Request.Form["keyword"];
+    string category = Request.Form["category"];
+    
+    //get products form databaase and show them inside productData div 
+    productData.InnerHtml = information;
+}
+
+Now the productData will show the products but since page 2 is called by page 1 through jQuery Load therefore they will also show on page 1. 
+
+I would suggest you to see this jQuery Load (http://www.yogihosting.com/jquery-load/) method tutorial which explains some great ways to use .load() method in your websites.
+
+Hello,
+
+I am Yogesh Singh from Yogihosting.com. I write programming articles on ASP.NET MVC, C#, jQuery, etc just like you. I was searching some articles on jQuery and i came acrosss your page "".
+
+I noticed that you have linked to one of my favorite articles - ""
+Just wanted to give you a heads up that i created a similar "". 
+
+Might be worth a mention on your page. 
+
+Either way keep up the awesome work! 
+
+Thanks
+Yogesh
+
+$191.90 (your net after paypal fee)
+-9.595 (your share 5% of the net above)
+-50.37 (omeprazole order)
+-60 (your payment to themeforest for the theme buying)
+-15 (your payment for the article writer cheryl)
++5.10 (amazon profit of september share)
+=62.035
+-15.50 (your payment to my service at peopleperhour.com)
++33.69 (payment for domain transfer from cara)
+-10(donation to worldwildlifefund.com)
+-60(theme buying in themeforest)
+=10.225
++14.2(from Tony and julie)
+-15(to cheryl for 5 articles)
+=9.422 (previous balance)
++57.36(from Bpost Bpaid)
+=66.782
+-10(domation at misha foundation)
+-20(donation at wwf)
+=36.782
+-$15(cheryl for 5 articles)
++33.69(Nations Electronics Solutions)
+=55.472
+-10(donation)
+=45.472
+-60(theme buying)
++242.25(order payment)
+=227.722
+-20(joy share)
+=207.722
+-20(WWF Donation)
+=187.722
+-10(donation to antifur society)
+=177.722
+-10(donation to WWF)
+=167.722
++8.9 (amazon payment)
+=176.622
+-25 (send to me)
+=151.622
+-59(theme price from mojo)
+=92.622
++28.84
+=121.462
+-20(donation to wwf)
+=101.462
+-20(Donation to WWF)
+=81.462
+-10 (Donation to Alex info@fortheloveofalex.org)
+=71.462
+-5(Donation to Misha Foundation)
+=66.462
+-10(Donation to http://www.sierraclub.org/)
+=56.462
++5.98(Amazon payment)
+=62.442
++17.21(Etsy)
+=79.652
+-20(donation to WWF)
+=59.652
++187.40(etsy payment)
+=247.052
+-210(send with xoom )
+=37.052
++28.85(etsy payment)
+=65.902
+-$61(Theme price)
+=$4.902
++$106.45 (ETSY)
+=$111.352
+-$2(Themeforest balance)
+=$109.352
+-20(Donation to wwf)
+=$89.352
+-90(Xoom transfer)
+=-0.352
